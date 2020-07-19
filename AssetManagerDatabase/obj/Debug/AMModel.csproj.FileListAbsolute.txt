@@ -1,0 +1,6 @@
+C:\Users\huabalmutawa\source\repos\AssetManager\AssetManagerDatabase\bin\Debug\AMModel.dll
+C:\Users\huabalmutawa\source\repos\AssetManager\AssetManagerDatabase\bin\Debug\AMModel.pdb
+C:\Users\huabalmutawa\source\repos\AssetManager\AssetManagerDatabase\obj\Debug\AMModel.csprojAssemblyReference.cache
+C:\Users\huabalmutawa\source\repos\AssetManager\AssetManagerDatabase\obj\Debug\AMModel.csproj.CoreCompileInputs.cache
+C:\Users\huabalmutawa\source\repos\AssetManager\AssetManagerDatabase\obj\Debug\AMModel.dll
+C:\Users\huabalmutawa\source\repos\AssetManager\AssetManagerDatabase\obj\Debug\AMModel.pdb

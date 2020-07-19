@@ -1,0 +1,22 @@
+create table USER_GROUPS(
+ GROUP_NAME varchar(20) NOT NULL PRIMARY KEY,
+ GROUP_DESC varchar(100) 
+);
+
+create table ROLES(
+ ROLE_NAME  varchar(20) NOT NULL PRIMARY KEY
+);
+
+create table GROUP_ROLES(
+ GROUP_NAME varchar(20) NOT NULL,
+ ROLE_NAME  varchar(20) NOT NULL,
+ PRIMARY KEY(GROUP_NAME,ROLE_NAME)
+);
+
+create table USERS(
+ USER_NAME  varchar(20) NOT NULL PRIMARY KEY,
+ USER_PSWD  varchar(50) NOT NULL,
+ GROUP_NAME varchar(20)
+);
+
+
