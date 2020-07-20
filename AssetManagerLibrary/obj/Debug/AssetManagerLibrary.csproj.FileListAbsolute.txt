@@ -1,9 +1,0 @@
-C:\Users\huabalmutawa\source\repos\AssetManager\AssetManagerLibrary\bin\Debug\AssetManagerLibrary.dll
-C:\Users\huabalmutawa\source\repos\AssetManager\AssetManagerLibrary\bin\Debug\AssetManagerLibrary.pdb
-C:\Users\huabalmutawa\source\repos\AssetManager\AssetManagerLibrary\obj\Debug\AssetManagerLibrary.csprojAssemblyReference.cache
-C:\Users\huabalmutawa\source\repos\AssetManager\AssetManagerLibrary\obj\Debug\AssetManagerLibrary.csproj.CoreCompileInputs.cache
-C:\Users\huabalmutawa\source\repos\AssetManager\AssetManagerLibrary\obj\Debug\AssetManagerLibrary.dll
-C:\Users\huabalmutawa\source\repos\AssetManager\AssetManagerLibrary\obj\Debug\AssetManagerLibrary.pdb
-C:\Users\huabalmutawa\source\repos\AssetManager\AssetManagerLibrary\bin\Debug\AssetManagerDatabase.dll
-C:\Users\huabalmutawa\source\repos\AssetManager\AssetManagerLibrary\bin\Debug\AssetManagerDatabase.pdb
-C:\Users\huabalmutawa\source\repos\AssetManager\AssetManagerLibrary\obj\Debug\AssetManagerLibrary.csproj.CopyComplete

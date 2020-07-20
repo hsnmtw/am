@@ -1,9 +1,0 @@
-C:\Users\huabalmutawa\source\repos\AssetManager\AssetManagerLibrary\bin\Debug\AMController.dll
-C:\Users\huabalmutawa\source\repos\AssetManager\AssetManagerLibrary\bin\Debug\AMController.pdb
-C:\Users\huabalmutawa\source\repos\AssetManager\AssetManagerLibrary\bin\Debug\AMModel.dll
-C:\Users\huabalmutawa\source\repos\AssetManager\AssetManagerLibrary\bin\Debug\AMModel.pdb
-C:\Users\huabalmutawa\source\repos\AssetManager\AssetManagerLibrary\obj\Debug\AMController.csprojAssemblyReference.cache
-C:\Users\huabalmutawa\source\repos\AssetManager\AssetManagerLibrary\obj\Debug\AMController.csproj.CoreCompileInputs.cache
-C:\Users\huabalmutawa\source\repos\AssetManager\AssetManagerLibrary\obj\Debug\AMController.csproj.CopyComplete
-C:\Users\huabalmutawa\source\repos\AssetManager\AssetManagerLibrary\obj\Debug\AMController.dll
-C:\Users\huabalmutawa\source\repos\AssetManager\AssetManagerLibrary\obj\Debug\AMController.pdb

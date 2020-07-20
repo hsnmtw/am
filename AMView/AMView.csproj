@@ -144,11 +144,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AssetManagerDatabase\AMModel.csproj">
-      <Project>{eba14983-83da-4399-bea6-363748fed741}</Project>
-      <Name>AMModel</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
