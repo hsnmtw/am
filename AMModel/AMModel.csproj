@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DefaultConnection.cs" />
+    <Compile Include="Models\AbstractModel.cs" />
     <Compile Include="Models\GroupModel.cs" />
     <Compile Include="Models\GroupRoleModel.cs" />
     <Compile Include="Models\IModel.cs" />

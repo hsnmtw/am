@@ -23,14 +23,12 @@ namespace AMView.Geographic {
                 DisplayMember = "LocationName",
                 ValueMember = "LocationName",
                 OnSelected = delegate (object value) {
-                    this.chkIsNew.Checked = false;
+                    chkIsNew.Checked = false;
                     frm.Close();
                     var model = (LocationModel)value;
                     model.Select();
                     txtLocationName.Text = model.LocationName;
-                    
-
-                    
+                    txtId.Text = model.Id.ToString();
                 }
             });
             frm.ShowDialog();

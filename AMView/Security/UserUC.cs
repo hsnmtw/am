@@ -35,11 +35,12 @@ namespace AMView.Security {
                 OnSelected = delegate (object value) {
                     this.chkIsNew.Checked = false;
                     frm.Close();
-                    var user = (UserModel)value;
-                    user.Select();
-                    txtUserName.Text = user.UserName;
-                    txtPassword.Text = user.UserPswd;
-                    cmbGroupName.Text  = user.GroupName;
+                    var model = (UserModel)value;
+                    model.Select();
+                    txtUserName.Text = model.UserName;
+                    txtPassword.Text = model.UserPswd;
+                    cmbGroupName.Text  = model.GroupName;
+                    txtId.Text = model.Id.ToString();
                 }
             });
             frm.ShowDialog();
@@ -55,20 +56,20 @@ namespace AMView.Security {
         }
 
         private void btnSave_Click(object sender, EventArgs e) {
-            UserModel user = new UserModel();
-            user.UserName = txtUserName.Text;
-            user.UserPswd = txtPassword.Text;
-            user.GroupName = cmbGroupName.Text;
+            UserModel model = new UserModel();
+            model.UserName = txtUserName.Text;
+            model.UserPswd = txtPassword.Text;
+            model.GroupName = cmbGroupName.Text;
 
-            if(user.Validate()==false) {
+            if(model.Validate()==false) {
                 MessageBox.Show(this,"All values are required","Save Action failed !",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
 
             if (this.chkIsNew.Checked) {
-                user.Insert();
+                model.Insert();
             } else {
-                user.Update();
+                model.Update();
             }
             chkIsNew.Checked = false;
             txtId.Text = model.Id.ToString();

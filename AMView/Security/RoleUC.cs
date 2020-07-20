@@ -30,10 +30,10 @@ namespace AMView.Security {
                 OnSelected = delegate (object value) {
                     this.chkIsNew.Checked = false;
                     frm.Close();
-                    var role = (RoleModel)value;
-                    role.Select();
-                    txtRoleName.Text = role.RoleName;
-                    
+                    var model = (RoleModel)value;
+                    model.Select();
+                    txtRoleName.Text = model.RoleName;
+                    txtId.Text = model.Id.ToString();
                 }
             });
             frm.ShowDialog();

@@ -1,26 +1,73 @@
-create table USER_GROUPS(
- ID         integer     NOT NULL UNIQUE,
+var sqls = @"
+
+drop table USER_GROUPS;
+drop table GROUPS;
+drop table USERS;
+drop table ROLES;
+drop table GROUP_ROLES;
+drop table LOCATIONS;
+drop table BUILDINGS;
+drop table ROOMS;
+
+
+
+
+create table GROUPS(
+ ID         AUTOINCREMENT     NOT NULL UNIQUE,
  GROUP_NAME varchar(20) NOT NULL PRIMARY KEY,
  GROUP_DESC varchar(100) 
 );
 
 create table ROLES(
- ID         integer     NOT NULL UNIQUE,
+ ID         AUTOINCREMENT     NOT NULL UNIQUE,
  ROLE_NAME  varchar(20) NOT NULL PRIMARY KEY
 );
 
 create table GROUP_ROLES(
- ID         integer     NOT NULL UNIQUE,
+ ID         AUTOINCREMENT     NOT NULL UNIQUE,
  GROUP_NAME varchar(20) NOT NULL,
  ROLE_NAME  varchar(20) NOT NULL,
  PRIMARY KEY(GROUP_NAME,ROLE_NAME)
 );
 
 create table USERS(
- ID         integer     NOT NULL UNIQUE,
+ ID         AUTOINCREMENT     NOT NULL UNIQUE,
  USER_NAME  varchar(20) NOT NULL PRIMARY KEY,
  USER_PSWD  varchar(50) NOT NULL,
  GROUP_NAME varchar(20)
 );
 
 
+create table LOCATIONS(
+ ID         AUTOINCREMENT     NOT NULL UNIQUE,
+ LOCATION_NAME  varchar(20) NOT NULL PRIMARY KEY
+);
+
+
+create table BUILDINGS (
+ ID         AUTOINCREMENT     NOT NULL UNIQUE,
+ LOCATION_NAME  varchar(20) NOT NULL ,
+ BUILDING_NAME  varchar(20) NOT NULL ,
+ PRIMARY KEY ( LOCATION_NAME, BUILDING_NAME )
+);
+
+create table ROOMS (
+ ID         AUTOINCREMENT     NOT NULL UNIQUE,
+ LOCATION_NAME  varchar(20) NOT NULL ,
+ BUILDING_NAME  varchar(20) NOT NULL ,
+ ROOM_NAME      varchar(20) NOT NULL ,
+ PRIMARY KEY ( LOCATION_NAME, BUILDING_NAME, ROOM_NAME )
+);
+
+
+INSERT INTO GROUPS (GROUP_NAME,GROUP_DESC) VALUES ('Admin','Administrators');
+
+INSERT INTO ROLES (ROLE_NAME) VALUES ('SQLView');
+
+INSERT INTO GROUP_ROLES (GROUP_NAME,ROLE_NAME) VALUES ('Admin','SQLView');
+
+INSERT INTO USERS (USER_NAME,USER_PSWD,GROUP_NAME) VALUES ('Admin','Admin','Admin');
+
+".Split(';');
+
+            foreach (var sql in sqls) Execute(sql);

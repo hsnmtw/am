@@ -79,7 +79,7 @@
             this.txtPassword.PasswordChar = '⚫';
             this.txtPassword.Size = new System.Drawing.Size(199, 20);
             this.txtPassword.TabIndex = 3;
-            this.txtPassword.Text = "Password";
+            this.txtPassword.Text = "Admin";
             // 
             // btnCancel
             // 

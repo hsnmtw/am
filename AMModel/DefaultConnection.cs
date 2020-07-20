@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace AMModel {
     public class DefaultConnection {
@@ -22,6 +23,8 @@ namespace AMModel {
         private DefaultConnection() {
             connection = new OleDbConnection(CONNECTION_STRING);
             connection.Open();
+            
+
         }
 
         public DataTable Query(string sql, params object[] parameters) {
@@ -47,12 +50,13 @@ namespace AMModel {
             try {
                 var cmd = new OleDbCommand(sql, connection);
                 if (parameters != null) {
-                    foreach (string prm in parameters) {
+                    foreach (var prm in parameters) {
                         cmd.Parameters.Add(new OleDbParameter() { Value = prm });
                     }
                 }
                 return cmd.ExecuteNonQuery();
             } catch (Exception e) {
+                Debug.Print("EXCEPTION: {0}" ,e.Message);
                 return e.Message;
             }
         }

@@ -6,12 +6,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace AMModel.Models {
-    public class RoleModel : IModel {
-        public int Id { get; set; }
+    public class RoleModel : AbstractModel {
+        public override int Id { get; set; }
         public string RoleName { get; set; }
 
+        public override string TABLE_NAME => "[ROLES]";
+
         public RoleModel[] All() {
-            var table = DefaultConnection.Instance.Query("SELECT [ID],[ROLE_NAME] FROM ROLES");
+            var table = DefaultConnection.Instance.Query("SELECT [ID],[ROLE_NAME] FROM " + TABLE_NAME + ";");
             var result = new RoleModel[table.Rows.Count];
 
             for (int i = 0; i < table.Rows.Count; i++) {
@@ -22,27 +24,24 @@ namespace AMModel.Models {
             return result;
         }
 
-        public void Delete() {
-            DefaultConnection.Instance.Execute("DELETE FROM ROLES WHERE [ID]=?", Id);
+
+        public override void Insert() {
+            DefaultConnection.Instance.Execute("INSERT INTO " + TABLE_NAME + " ([ROLE_NAME]) VALUES (?)", RoleName);
         }
 
-        public void Insert() {
-            DefaultConnection.Instance.Execute("INSERT INTO ROLES ([ID],[ROLE_NAME]) VALUES (?,?)",Id, RoleName);
-        }
-
-        public void Select() {
-            var table = DefaultConnection.Instance.Query("SELECT [ID],[ROLE_NAME] FROM ROLES WHERE [ROLE_NAME]=? OR [ID]=?", RoleName, Id);
+        public override void Select() {
+            var table = DefaultConnection.Instance.Query("SELECT [ID],[ROLE_NAME] FROM " + TABLE_NAME + " WHERE [ROLE_NAME]=? OR [ID]=?", RoleName, Id);
             if (table.Rows.Count == 1 && table.Columns.Count > 1) {
                 RoleName = table.Rows[0]["ROLE_NAME"].ToString();
                 Id = int.Parse(table.Rows[0]["ID"].ToString());
             }
         }
 
-        public void Update() {
-            DefaultConnection.Instance.Execute("UPDATE ROLES SET [ROLE_NAME]=? WHERE [ID]=?", RoleName, Id);
+        public override void Update() {
+            DefaultConnection.Instance.Execute("UPDATE " + TABLE_NAME + " SET [ROLE_NAME]=? WHERE [ID]=?", RoleName, Id);
         }
 
-        public bool Validate() {
+        public override bool Validate() {
             return !RoleName.Trim().Equals("");
         }
     }
