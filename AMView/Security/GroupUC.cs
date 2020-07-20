@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AMModel.Models;
 
-namespace AMView.Security.Group {
+namespace AMView.Security {
     public partial class GroupUC : UserControl {
         public GroupUC() {
             InitializeComponent();
@@ -29,7 +29,7 @@ namespace AMView.Security.Group {
                     model.Select();
                     txtGroupName.Text = model.GroupName;
                     txtGroupDesc.Text = model.GroupDesc;
-
+                    txtId.Text = model.Id.ToString();
                     var cmodel = new GroupRoleModel();
                     cmodel.GroupName = model.GroupName;
                     var roles = cmodel.SearchByGroupName().Select(x => x.RoleName).OrderBy(x => x);
@@ -44,6 +44,7 @@ namespace AMView.Security.Group {
         private void btnDelete_Click(object sender, EventArgs e) {
             var model = new GroupModel();
             model.GroupName = txtGroupName.Text;
+            model.Id = int.Parse(txtId.Text);
             model.Delete();
         }
 
@@ -73,9 +74,14 @@ namespace AMView.Security.Group {
                     grmodel.Insert();
                 }
             }
+
+            chkIsNew.Checked = false;
+            txtId.Text = model.Id.ToString();
         }
 
         private void btnNew_Click(object sender, EventArgs e) {
+            chkIsNew.Checked = true;
+            txtId.Text = "0";
             txtGroupDesc.Text = "";
             txtGroupName.Text = "";
             for(int i=0;i< chklstRoles.Items.Count;i++) {

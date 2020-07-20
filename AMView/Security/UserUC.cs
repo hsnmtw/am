@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AMModel.Models;
 
-namespace AMView.Security.User {
+namespace AMView.Security {
     public partial class UserUC : UserControl {
         public UserUC() {
             InitializeComponent();
@@ -46,6 +46,7 @@ namespace AMView.Security.User {
         }
 
         private void btnNew_Click(object sender, EventArgs e) {
+            txtId.Text = "0";
             txtPassword.Text = "";
             txtUserName.Text = "";
             cmbGroupName.Text = "";
@@ -69,6 +70,8 @@ namespace AMView.Security.User {
             } else {
                 user.Update();
             }
+            chkIsNew.Checked = false;
+            txtId.Text = model.Id.ToString();
         }
 
         private void btnDelete_Click(object sender, EventArgs e) {

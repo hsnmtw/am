@@ -19,38 +19,34 @@ namespace AMView.Geographic {
             Form frm = new Form() { Text = "Search Locations", Size = new Size(200, 500), StartPosition = FormStartPosition.CenterParent };
             frm.Controls.Add(new Common.CommonPickUpValueListUC() {
                 Dock = DockStyle.Fill,
-                Data = new GroupModel().All(),
+                Data = new LocationModel().All(),
                 DisplayMember = "LocationName",
                 ValueMember = "LocationName",
                 OnSelected = delegate (object value) {
                     this.chkIsNew.Checked = false;
                     frm.Close();
-                    var model = (GroupModel)value;
+                    var model = (LocationModel)value;
                     model.Select();
-                    txtGroupName.Text = model.GroupName;
-                    txtGroupDesc.Text = model.GroupDesc;
+                    txtLocationName.Text = model.LocationName;
+                    
 
-                    var cmodel = new GroupRoleModel();
-                    cmodel.GroupName = model.GroupName;
-                    var roles = cmodel.SearchByGroupName().Select(x => x.RoleName).OrderBy(x => x);
-                    for(int i = 0; i < chklstRoles.Items.Count; i++) {
-                        chklstRoles.SetItemChecked(i, roles.Contains(chklstRoles.Items[i].ToString()));
-                    }
+                    
                 }
             });
             frm.ShowDialog();
         }
 
         private void btnDelete_Click(object sender, EventArgs e) {
-            var model = new GroupModel();
-            model.GroupName = txtGroupName.Text;
+            var model = new LocationModel();
+            model.Id = int.Parse(txtId.Text);
+            model.LocationName = txtLocationName.Text;
             model.Delete();
         }
 
         private void btnSave_Click(object sender, EventArgs e) {
-            var model = new GroupModel();
-            model.GroupName = txtGroupName.Text;
-            model.GroupDesc = txtGroupDesc.Text;
+            var model = new LocationModel();
+            model.LocationName = txtLocationName.Text;
+            model.Id = int.Parse(txtId.Text);
 
             if (model.Validate() == false) {
                 MessageBox.Show(this, "All values are required", "Save Action failed !", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -63,33 +59,20 @@ namespace AMView.Geographic {
                 model.Update();
             }
 
-            var grmodel = new GroupRoleModel();
-            grmodel.GroupName = model.GroupName;
-            grmodel.DeleteByGroupName();
-            
-            for(int i = 0; i < chklstRoles.Items.Count; i++) {
-                if (chklstRoles.GetItemChecked(i)) {
-                    grmodel.RoleName = chklstRoles.Items[i].ToString();
-                    grmodel.Insert();
-                }
-            }
+            chkIsNew.Checked = false;
+            txtId.Text = model.Id.ToString();
         }
 
         private void btnNew_Click(object sender, EventArgs e) {
-            txtGroupDesc.Text = "";
-            txtGroupName.Text = "";
-            for(int i=0;i< chklstRoles.Items.Count;i++) {
-                chklstRoles.SetItemChecked(i, false);
-            }
+            txtId.Text = "0";
+            txtLocationName.Text = "";
+            chkIsNew.Checked = true;
         }
 
-        private void GroupUC_Load(object sender, EventArgs e) {
-            txtGroupName.Focus();
-            txtGroupName.Select();
-            var model = new RoleModel();
-            foreach(var role in model.All().OrderBy(x => x.RoleName)) {
-                chklstRoles.Items.Add(role.RoleName);
-            }
+        private void LocationUC_Load(object sender, EventArgs e) {
+            txtLocationName.Focus();
+            txtLocationName.Select();
+            txtId.Text = "0";
         }
     }
 }

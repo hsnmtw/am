@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AMModel.Models;
 
-namespace AMView.Security.Role {
+namespace AMView.Security {
     public partial class RoleUC : UserControl {
         public RoleUC() {
             InitializeComponent();
@@ -54,6 +54,8 @@ namespace AMView.Security.Role {
             } else {
                 model.Update();
             }
+            chkIsNew.Checked = false;
+            txtId.Text = model.Id.ToString();
         }
 
         private void btnDelete_Click(object sender, EventArgs e) {
@@ -64,6 +66,8 @@ namespace AMView.Security.Role {
 
         private void btnNew_Click(object sender, EventArgs e) {
             txtRoleName.Text = "";
+            chkIsNew.Checked = true;
+            txtId.Text = "0";
         }
     }
 }

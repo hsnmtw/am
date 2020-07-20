@@ -72,22 +72,22 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Security\Group\GroupUC.cs">
+    <Compile Include="Security\GroupUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Security\Group\GroupUC.Designer.cs">
+    <Compile Include="Security\GroupUC.Designer.cs">
       <DependentUpon>GroupUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="Security\Role\RoleUC.cs">
+    <Compile Include="Security\RoleUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Security\Role\RoleUC.Designer.cs">
+    <Compile Include="Security\RoleUC.Designer.cs">
       <DependentUpon>RoleUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="Security\User\UserUC.cs">
+    <Compile Include="Security\UserUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Security\User\UserUC.Designer.cs">
+    <Compile Include="Security\UserUC.Designer.cs">
       <DependentUpon>UserUC.cs</DependentUpon>
     </Compile>
     <Compile Include="Session.cs" />
@@ -119,13 +119,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Security\Group\GroupUC.resx">
+    <EmbeddedResource Include="Security\GroupUC.resx">
       <DependentUpon>GroupUC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Security\Role\RoleUC.resx">
+    <EmbeddedResource Include="Security\RoleUC.resx">
       <DependentUpon>RoleUC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Security\User\UserUC.resx">
+    <EmbeddedResource Include="Security\UserUC.resx">
       <DependentUpon>UserUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SQL\SQLViewUC.resx">
@@ -143,6 +143,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AMModel\AMModel.csproj">
+      <Project>{EBA14983-83DA-4399-BEA6-363748FED741}</Project>
+      <Name>AMModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

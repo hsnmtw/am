@@ -44,9 +44,9 @@ namespace AMView {
         private void lstMenu_DoubleClick(object sender, EventArgs e) {
             switch (lstMenu.SelectedItem) {
                 case "SQLView": OpenForm("AMView.SQL.SQLViewUC");          break;
-                case "Groups" : OpenForm("AMView.Security.Group.GroupUC"); break;
-                case "Roles"  : OpenForm("AMView.Security.Role.RoleUC");   break;
-                case "Users"  : OpenForm("AMView.Security.User.UserUC");   break;
+                case "Groups" : OpenForm("AMView.Security.GroupUC"); break;
+                case "Roles"  : OpenForm("AMView.Security.RoleUC");   break;
+                case "Users"  : OpenForm("AMView.Security.UserUC");   break;
             }
         }
     }

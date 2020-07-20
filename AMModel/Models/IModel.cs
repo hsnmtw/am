@@ -1,13 +1,12 @@
 ﻿namespace AMModel.Models {
     public interface IModel {
         int Id { get; set; }
+        string TABLE_NAME { get; }
         void Select();
         void Delete();
         void Update();
         void Insert();
-        //object[] All();
-        //object[] Search();
-
+        int Count();
         bool Validate();
     }
 }
