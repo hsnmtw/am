@@ -28,7 +28,7 @@ namespace AMView.Security {
                 DisplayMember = "RoleName",
                 ValueMember = "RoleName",
                 OnSelected = delegate (object value) {
-                    this.chkIsNew.Checked = false;
+
                     frm.Close();
                     var model = (RoleModel)value;
                     model.Select();
@@ -49,12 +49,8 @@ namespace AMView.Security {
                 return;
             }
 
-            if (this.chkIsNew.Checked) {
-                model.Insert();
-            } else {
-                model.Update();
-            }
-            chkIsNew.Checked = false;
+            model.Save();
+
             txtId.Text = model.Id.ToString();
         }
 
@@ -66,7 +62,6 @@ namespace AMView.Security {
 
         private void btnNew_Click(object sender, EventArgs e) {
             txtRoleName.Text = "";
-            chkIsNew.Checked = true;
             txtId.Text = "0";
         }
     }

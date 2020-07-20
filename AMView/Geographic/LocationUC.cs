@@ -23,7 +23,7 @@ namespace AMView.Geographic {
                 DisplayMember = "LocationName",
                 ValueMember = "LocationName",
                 OnSelected = delegate (object value) {
-                    chkIsNew.Checked = false;
+
                     frm.Close();
                     var model = (LocationModel)value;
                     model.Select();
@@ -51,20 +51,14 @@ namespace AMView.Geographic {
                 return;
             }
 
-            if (this.chkIsNew.Checked) {
-                model.Insert();
-            } else {
-                model.Update();
-            }
+            model.Save();
 
-            chkIsNew.Checked = false;
             txtId.Text = model.Id.ToString();
         }
 
         private void btnNew_Click(object sender, EventArgs e) {
             txtId.Text = "0";
             txtLocationName.Text = "";
-            chkIsNew.Checked = true;
         }
 
         private void LocationUC_Load(object sender, EventArgs e) {

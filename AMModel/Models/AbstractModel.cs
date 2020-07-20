@@ -15,6 +15,11 @@ namespace AMModel.Models {
             DefaultConnection.Instance.Execute("DELETE FROM " + TABLE_NAME + " WHERE [ID]=?", Id);
         }
 
+        public void Save() {
+            if (Id < 1) Insert();
+            else Update();
+        }
+
         public abstract void Insert();
         public abstract void Select();
         public abstract void Update();

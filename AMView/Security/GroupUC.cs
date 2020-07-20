@@ -23,7 +23,7 @@ namespace AMView.Security {
                 DisplayMember = "GroupName",
                 ValueMember = "GroupName",
                 OnSelected = delegate (object value) {
-                    this.chkIsNew.Checked = false;
+                    
                     frm.Close();
                     var model = (GroupModel)value;
                     model.Select();
@@ -32,9 +32,10 @@ namespace AMView.Security {
                     txtId.Text = model.Id.ToString();
                     var cmodel = new GroupRoleModel();
                     cmodel.GroupName = model.GroupName;
-                    var roles = cmodel.SearchByGroupName().Select(x => x.RoleName).OrderBy(x => x);
-                    for(int i = 0; i < chklstRoles.Items.Count; i++) {
-                        chklstRoles.SetItemChecked(i, roles.Contains(chklstRoles.Items[i].ToString()));
+                    var roles = cmodel.SearchByGroupName();
+                    btnSelectNone_Click(null, null);
+                    foreach(var role in roles) {
+                        ((CheckBox)flpRoles.Controls[role.RoleName]).Checked = true;
                     }
                 }
             });
@@ -58,43 +59,54 @@ namespace AMView.Security {
                 return;
             }
 
-            if (this.chkIsNew.Checked) {
-                model.Insert();
-            } else {
-                model.Update();
-            }
+            model.Save();
 
             var grmodel = new GroupRoleModel();
             grmodel.GroupName = model.GroupName;
             grmodel.DeleteByGroupName();
             
-            for(int i = 0; i < chklstRoles.Items.Count; i++) {
-                if (chklstRoles.GetItemChecked(i)) {
-                    grmodel.RoleName = chklstRoles.Items[i].ToString();
-                    grmodel.Insert();
-                }
-            }
+            
 
-            chkIsNew.Checked = false;
+            
             txtId.Text = model.Id.ToString();
         }
 
         private void btnNew_Click(object sender, EventArgs e) {
-            chkIsNew.Checked = true;
+            
             txtId.Text = "0";
             txtGroupDesc.Text = "";
             txtGroupName.Text = "";
-            for(int i=0;i< chklstRoles.Items.Count;i++) {
-                chklstRoles.SetItemChecked(i, false);
-            }
+            btnSelectNone_Click(null, null);
         }
 
         private void GroupUC_Load(object sender, EventArgs e) {
             txtGroupName.Focus();
             txtGroupName.Select();
             var model = new RoleModel();
-            foreach(var role in model.All().OrderBy(x => x.RoleName)) {
-                chklstRoles.Items.Add(role.RoleName);
+
+            flpRoles.HorizontalScroll.Visible = false;
+            flpRoles.HorizontalScroll.Maximum = 0;
+
+            foreach (var role in model.All().OrderBy(x => x.RoleName)) {
+                flpRoles.Controls.Add(new CheckBox() {
+                    Name = role.RoleName,
+                    Text = role.RoleName,
+                    Tag  = role.Id,
+                    AutoSize = false
+                });
+            }
+
+        }
+
+        private void btnSelectAll_Click(object sender, EventArgs e) {
+            foreach(CheckBox chk in flpRoles.Controls) {
+                chk.Checked = true;
+            }
+        }
+
+        private void btnSelectNone_Click(object sender, EventArgs e) {
+            foreach (CheckBox chk in flpRoles.Controls) {
+                chk.Checked = false;
             }
         }
     }

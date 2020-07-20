@@ -14,11 +14,16 @@ namespace AMView.Security {
         public UserUC() {
             InitializeComponent();
         }
-
+        
         private void UserUC_Load(object sender, EventArgs e) {
+            flpGroups.HorizontalScroll.Visible = false;
             var groups = new GroupModel().All();
-            foreach(var group in groups) {
-                cmbGroupName.Items.Add(group.GroupName);
+            foreach (var group in groups) {
+                flpGroups.Controls.Add(new RadioButton() {
+                    Text = group.GroupName,
+                    Tag = group.Id,
+                    Name = group.GroupName
+                });
             }
             this.Refresh();
             this.txtUserName.Focus();
@@ -33,13 +38,13 @@ namespace AMView.Security {
                 DisplayMember = "UserName",
                 ValueMember = "UserName",
                 OnSelected = delegate (object value) {
-                    this.chkIsNew.Checked = false;
+                    
                     frm.Close();
                     var model = (UserModel)value;
                     model.Select();
                     txtUserName.Text = model.UserName;
                     txtPassword.Text = model.UserPswd;
-                    cmbGroupName.Text  = model.GroupName;
+                    ((RadioButton)flpGroups.Controls[model.GroupName]).Checked = true;
                     txtId.Text = model.Id.ToString();
                 }
             });
@@ -50,28 +55,21 @@ namespace AMView.Security {
             txtId.Text = "0";
             txtPassword.Text = "";
             txtUserName.Text = "";
-            cmbGroupName.Text = "";
-            cmbGroupName.SelectedIndex = -1;
-            this.chkIsNew.Checked = true;
+            
         }
 
         private void btnSave_Click(object sender, EventArgs e) {
             UserModel model = new UserModel();
             model.UserName = txtUserName.Text;
             model.UserPswd = txtPassword.Text;
-            model.GroupName = cmbGroupName.Text;
+            
 
             if(model.Validate()==false) {
                 MessageBox.Show(this,"All values are required","Save Action failed !",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
 
-            if (this.chkIsNew.Checked) {
-                model.Insert();
-            } else {
-                model.Update();
-            }
-            chkIsNew.Checked = false;
+            model.Save();
             txtId.Text = model.Id.ToString();
         }
 

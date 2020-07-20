@@ -23,7 +23,6 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.chkIsNew = new System.Windows.Forms.CheckBox();
             this.btnNew = new System.Windows.Forms.Button();
             this.btnFind = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -33,19 +32,6 @@
             this.txtId = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // chkIsNew
-            // 
-            this.chkIsNew.AutoSize = true;
-            this.chkIsNew.Checked = true;
-            this.chkIsNew.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkIsNew.Enabled = false;
-            this.chkIsNew.Location = new System.Drawing.Point(102, 15);
-            this.chkIsNew.Name = "chkIsNew";
-            this.chkIsNew.Size = new System.Drawing.Size(59, 17);
-            this.chkIsNew.TabIndex = 0;
-            this.chkIsNew.Text = "Is New";
-            this.chkIsNew.UseVisualStyleBackColor = true;
             // 
             // btnNew
             // 
@@ -60,7 +46,7 @@
             // btnFind
             // 
             this.btnFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFind.Location = new System.Drawing.Point(288, 73);
+            this.btnFind.Location = new System.Drawing.Point(282, 28);
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(31, 22);
             this.btnFind.TabIndex = 5;
@@ -92,7 +78,7 @@
             // 
             // txtRoleName
             // 
-            this.txtRoleName.Location = new System.Drawing.Point(102, 74);
+            this.txtRoleName.Location = new System.Drawing.Point(96, 29);
             this.txtRoleName.Name = "txtRoleName";
             this.txtRoleName.Size = new System.Drawing.Size(183, 20);
             this.txtRoleName.TabIndex = 4;
@@ -100,7 +86,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 77);
+            this.label1.Location = new System.Drawing.Point(7, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 3;
@@ -108,7 +94,7 @@
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(102, 48);
+            this.txtId.Location = new System.Drawing.Point(96, 3);
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(61, 20);
@@ -119,7 +105,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 51);
+            this.label2.Location = new System.Drawing.Point(7, 6);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(16, 13);
             this.label2.TabIndex = 1;
@@ -131,7 +117,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.chkIsNew);
             this.Controls.Add(this.btnNew);
             this.Controls.Add(this.btnFind);
             this.Controls.Add(this.btnDelete);
@@ -147,8 +132,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.CheckBox chkIsNew;
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.Button btnDelete;
