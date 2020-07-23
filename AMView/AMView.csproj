@@ -46,11 +46,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ProductTypeUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Assets\ProductTypeUC.Designer.cs">
+      <DependentUpon>ProductTypeUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\ManufacturerUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Assets\ManufacturerUC.Designer.cs">
+      <DependentUpon>ManufacturerUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\StaffUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Assets\StaffUC.Designer.cs">
+      <DependentUpon>StaffUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Common\CommonPickUpValueListUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Common\CommonPickUpValueListUC.Designer.cs">
       <DependentUpon>CommonPickUpValueListUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Geographic\RoomUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Geographic\RoomUC.Designer.cs">
+      <DependentUpon>RoomUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Geographic\BuildingUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Geographic\BuildingUC.Designer.cs">
+      <DependentUpon>BuildingUC.cs</DependentUpon>
     </Compile>
     <Compile Include="Geographic\LocationUC.cs">
       <SubType>UserControl</SubType>
@@ -97,8 +127,23 @@
     <Compile Include="SQL\SQLViewUC.Designer.cs">
       <DependentUpon>SQLViewUC.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Assets\ProductTypeUC.resx">
+      <DependentUpon>ProductTypeUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\ManufacturerUC.resx">
+      <DependentUpon>ManufacturerUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assets\StaffUC.resx">
+      <DependentUpon>StaffUC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Common\CommonPickUpValueListUC.resx">
       <DependentUpon>CommonPickUpValueListUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Geographic\RoomUC.resx">
+      <DependentUpon>RoomUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Geographic\BuildingUC.resx">
+      <DependentUpon>BuildingUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Geographic\LocationUC.resx">
       <DependentUpon>LocationUC.cs</DependentUpon>
@@ -150,5 +195,6 @@
       <Name>AMModel</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

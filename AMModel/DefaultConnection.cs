@@ -30,16 +30,16 @@ namespace AMModel {
         public DataTable Query(string sql, params object[] parameters) {
             
             DataTable table = new DataTable();
-            try {
+            //try {
                 var cmd = new OleDbCommand(sql, connection);
                 var adp = new OleDbDataAdapter(cmd);
                 if(parameters != null) {
-                    foreach(string prm in parameters) {
+                    foreach(var prm in parameters) {
                         cmd.Parameters.Add(new OleDbParameter() { Value = prm });
                     }
                 }
                 adp.Fill(table);
-            } catch (Exception e){
+            try{} catch (Exception e){
                 table.Columns.Add("ERROR");
                 table.Rows.Add(e.Message);
             }
@@ -47,7 +47,8 @@ namespace AMModel {
         }
 
         public object Execute(string sql,params object[] parameters) {
-            try {
+            if (sql.Trim().Equals("")) return null;
+            //try {
                 var cmd = new OleDbCommand(sql, connection);
                 if (parameters != null) {
                     foreach (var prm in parameters) {
@@ -55,7 +56,7 @@ namespace AMModel {
                     }
                 }
                 return cmd.ExecuteNonQuery();
-            } catch (Exception e) {
+            try{} catch (Exception e) {
                 Debug.Print("EXCEPTION: {0}" ,e.Message);
                 return e.Message;
             }

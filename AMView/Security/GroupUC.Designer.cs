@@ -27,12 +27,12 @@
             this.btnFind = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.txtGroupDesc = new System.Windows.Forms.TextBox();
+            this.txtGROUP_DESC = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtGroupName = new System.Windows.Forms.TextBox();
+            this.txtGROUP_NAME = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.TextBox();
+            this.txtID = new System.Windows.Forms.TextBox();
             this.gboxRoles = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.flpRoles = new System.Windows.Forms.FlowLayoutPanel();
@@ -84,13 +84,13 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // txtGroupDesc
+            // txtGROUP_DESC
             // 
-            this.txtGroupDesc.Location = new System.Drawing.Point(94, 60);
-            this.txtGroupDesc.Multiline = true;
-            this.txtGroupDesc.Name = "txtGroupDesc";
-            this.txtGroupDesc.Size = new System.Drawing.Size(216, 34);
-            this.txtGroupDesc.TabIndex = 7;
+            this.txtGROUP_DESC.Location = new System.Drawing.Point(94, 60);
+            this.txtGROUP_DESC.Multiline = true;
+            this.txtGROUP_DESC.Name = "txtGROUP_DESC";
+            this.txtGROUP_DESC.Size = new System.Drawing.Size(216, 34);
+            this.txtGROUP_DESC.TabIndex = 7;
             // 
             // label2
             // 
@@ -101,12 +101,12 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "&Description";
             // 
-            // txtGroupName
+            // txtGROUP_NAME
             // 
-            this.txtGroupName.Location = new System.Drawing.Point(94, 33);
-            this.txtGroupName.Name = "txtGroupName";
-            this.txtGroupName.Size = new System.Drawing.Size(183, 20);
-            this.txtGroupName.TabIndex = 4;
+            this.txtGROUP_NAME.Location = new System.Drawing.Point(94, 33);
+            this.txtGROUP_NAME.Name = "txtGROUP_NAME";
+            this.txtGROUP_NAME.Size = new System.Drawing.Size(183, 20);
+            this.txtGROUP_NAME.TabIndex = 4;
             // 
             // label1
             // 
@@ -126,15 +126,15 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "Id";
             // 
-            // txtId
+            // txtID
             // 
-            this.txtId.Location = new System.Drawing.Point(95, 7);
-            this.txtId.Name = "txtId";
-            this.txtId.ReadOnly = true;
-            this.txtId.Size = new System.Drawing.Size(61, 20);
-            this.txtId.TabIndex = 2;
-            this.txtId.TabStop = false;
-            this.txtId.Text = "0";
+            this.txtID.Location = new System.Drawing.Point(95, 7);
+            this.txtID.Name = "txtID";
+            this.txtID.ReadOnly = true;
+            this.txtID.Size = new System.Drawing.Size(61, 20);
+            this.txtID.TabIndex = 2;
+            this.txtID.TabStop = false;
+            this.txtID.Text = "0";
             // 
             // gboxRoles
             // 
@@ -191,16 +191,16 @@
             this.Controls.Add(this.btnSelectNone);
             this.Controls.Add(this.btnSelectAll);
             this.Controls.Add(this.gboxRoles);
-            this.Controls.Add(this.txtId);
+            this.Controls.Add(this.txtID);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnNew);
             this.Controls.Add(this.btnFind);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.txtGroupDesc);
+            this.Controls.Add(this.txtGROUP_DESC);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtGroupName);
+            this.Controls.Add(this.txtGROUP_NAME);
             this.Controls.Add(this.label1);
             this.Name = "GroupUC";
             this.Size = new System.Drawing.Size(391, 510);
@@ -216,12 +216,12 @@
         private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.TextBox txtGroupDesc;
+        private System.Windows.Forms.TextBox txtGROUP_DESC;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtGroupName;
+        private System.Windows.Forms.TextBox txtGROUP_NAME;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.GroupBox gboxRoles;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.FlowLayoutPanel flpRoles;

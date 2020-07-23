@@ -38,3 +38,8 @@ D:\repositories\am\AMView\bin\Debug\AMView.pdb
 D:\repositories\am\AMView\bin\Debug\AMModel.dll
 D:\repositories\am\AMView\bin\Debug\AMModel.pdb
 D:\repositories\am\AMView\obj\Debug\AMView.csproj.CopyComplete
+D:\repositories\am\AMView\obj\Debug\AMView.Geographic.BuildingUC.resources
+D:\repositories\am\AMView\obj\Debug\AMView.Geographic.RoomUC.resources
+D:\repositories\am\AMView\obj\Debug\AMView.Assets.StaffUC.resources
+D:\repositories\am\AMView\obj\Debug\AMView.Assets.ManufacturerUC.resources
+D:\repositories\am\AMView\obj\Debug\AMView.Assets.ProductTypeUC.resources

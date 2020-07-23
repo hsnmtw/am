@@ -27,10 +27,10 @@
             this.btnFind = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.txtLocationName = new System.Windows.Forms.TextBox();
+            this.txtLOCATION_NAME = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.TextBox();
+            this.txtID = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnNew
@@ -76,12 +76,13 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // txtLocationName
+            // txtLOCATION_NAME
             // 
-            this.txtLocationName.Location = new System.Drawing.Point(103, 30);
-            this.txtLocationName.Name = "txtLocationName";
-            this.txtLocationName.Size = new System.Drawing.Size(183, 20);
-            this.txtLocationName.TabIndex = 4;
+            this.txtLOCATION_NAME.Location = new System.Drawing.Point(103, 30);
+            this.txtLOCATION_NAME.MaxLength = 20;
+            this.txtLOCATION_NAME.Name = "txtLOCATION_NAME";
+            this.txtLOCATION_NAME.Size = new System.Drawing.Size(183, 20);
+            this.txtLOCATION_NAME.TabIndex = 4;
             // 
             // label1
             // 
@@ -101,15 +102,15 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Id";
             // 
-            // txtId
+            // txtID
             // 
-            this.txtId.Location = new System.Drawing.Point(103, 4);
-            this.txtId.Name = "txtId";
-            this.txtId.ReadOnly = true;
-            this.txtId.Size = new System.Drawing.Size(61, 20);
-            this.txtId.TabIndex = 2;
-            this.txtId.TabStop = false;
-            this.txtId.Text = "0";
+            this.txtID.Location = new System.Drawing.Point(103, 4);
+            this.txtID.Name = "txtID";
+            this.txtID.ReadOnly = true;
+            this.txtID.Size = new System.Drawing.Size(61, 20);
+            this.txtID.TabIndex = 2;
+            this.txtID.TabStop = false;
+            this.txtID.Text = "0";
             // 
             // LocationUC
             // 
@@ -119,9 +120,9 @@
             this.Controls.Add(this.btnFind);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.txtId);
+            this.Controls.Add(this.txtID);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtLocationName);
+            this.Controls.Add(this.txtLOCATION_NAME);
             this.Controls.Add(this.label1);
             this.Name = "LocationUC";
             this.Size = new System.Drawing.Size(332, 168);
@@ -136,9 +137,9 @@
         private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.TextBox txtLocationName;
+        private System.Windows.Forms.TextBox txtLOCATION_NAME;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.TextBox txtID;
     }
 }

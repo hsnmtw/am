@@ -16,19 +16,18 @@ namespace AMView.Geographic {
         }
 
         private void btnFind_Click(object sender, EventArgs e) {
-            Form frm = new Form() { Text = "Search Locations", Size = new Size(200, 500), StartPosition = FormStartPosition.CenterParent };
+            Form frm = new Form() { Text = "Search Locations", Size = new Size(500, 300), StartPosition = FormStartPosition.CenterParent };
             frm.Controls.Add(new Common.CommonPickUpValueListUC() {
                 Dock = DockStyle.Fill,
                 Data = new LocationModel().All(),
-                DisplayMember = "LocationName",
-                ValueMember = "LocationName",
+                DisplayMember = "LOCATION_NAME",
                 OnSelected = delegate (object value) {
 
                     frm.Close();
                     var model = (LocationModel)value;
                     model.Select();
-                    txtLocationName.Text = model.LocationName;
-                    txtId.Text = model.Id.ToString();
+                    txtLOCATION_NAME.Text = model.LOCATION_NAME;
+                    txtID.Text = model.ID.ToString();
                 }
             });
             frm.ShowDialog();
@@ -36,15 +35,18 @@ namespace AMView.Geographic {
 
         private void btnDelete_Click(object sender, EventArgs e) {
             var model = new LocationModel();
-            model.Id = int.Parse(txtId.Text);
-            model.LocationName = txtLocationName.Text;
+            model.ID = int.Parse(txtID.Text);
+            model.LOCATION_NAME = txtLOCATION_NAME.Text;
             model.Delete();
         }
 
         private void btnSave_Click(object sender, EventArgs e) {
             var model = new LocationModel();
-            model.LocationName = txtLocationName.Text;
-            model.Id = int.Parse(txtId.Text);
+
+            model.LOCATION_NAME = txtLOCATION_NAME.Text;
+            
+            int.TryParse(txtID.Text, out int id);
+            model.ID = id;
 
             if (model.Validate() == false) {
                 MessageBox.Show(this, "All values are required", "Save Action failed !", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -53,18 +55,20 @@ namespace AMView.Geographic {
 
             model.Save();
 
-            txtId.Text = model.Id.ToString();
+            txtID.Text = model.ID.ToString();
+            txtLOCATION_NAME.Focus();
+            txtLOCATION_NAME.Select();
         }
 
         private void btnNew_Click(object sender, EventArgs e) {
-            txtId.Text = "0";
-            txtLocationName.Text = "";
+            foreach (Control control in Controls.Cast<Control>().Where(x => x.GetType().ToString().Contains("TextBox"))) control.Text = "";
+            LocationUC_Load(sender, e);
         }
 
         private void LocationUC_Load(object sender, EventArgs e) {
-            txtLocationName.Focus();
-            txtLocationName.Select();
-            txtId.Text = "0";
+            txtLOCATION_NAME.Focus();
+            txtLOCATION_NAME.Select();
+            txtID.Text = "0";
         }
     }
 }

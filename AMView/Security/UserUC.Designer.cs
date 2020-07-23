@@ -24,15 +24,15 @@
         /// </summary>
         private void InitializeComponent() {
             this.label1 = new System.Windows.Forms.Label();
-            this.txtUserName = new System.Windows.Forms.TextBox();
+            this.txtUSER_NAME = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.txtUSER_PSWD = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnFind = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
-            this.txtId = new System.Windows.Forms.TextBox();
+            this.txtID = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.gboxGroup = new System.Windows.Forms.GroupBox();
             this.flpGroups = new System.Windows.Forms.FlowLayoutPanel();
@@ -48,12 +48,12 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "&User Name";
             // 
-            // txtUserName
+            // txtUSER_NAME
             // 
-            this.txtUserName.Location = new System.Drawing.Point(96, 30);
-            this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(183, 20);
-            this.txtUserName.TabIndex = 4;
+            this.txtUSER_NAME.Location = new System.Drawing.Point(96, 30);
+            this.txtUSER_NAME.Name = "txtUSER_NAME";
+            this.txtUSER_NAME.Size = new System.Drawing.Size(183, 20);
+            this.txtUSER_NAME.TabIndex = 4;
             // 
             // label2
             // 
@@ -66,11 +66,11 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(96, 57);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(215, 20);
-            this.txtPassword.TabIndex = 7;
+            this.txtUSER_PSWD.Location = new System.Drawing.Point(96, 57);
+            this.txtUSER_PSWD.Name = "txtPassword";
+            this.txtUSER_PSWD.PasswordChar = '*';
+            this.txtUSER_PSWD.Size = new System.Drawing.Size(215, 20);
+            this.txtUSER_PSWD.TabIndex = 7;
             // 
             // label3
             // 
@@ -124,15 +124,15 @@
             this.btnNew.UseVisualStyleBackColor = true;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
-            // txtId
+            // txtID
             // 
-            this.txtId.Location = new System.Drawing.Point(96, 4);
-            this.txtId.Name = "txtId";
-            this.txtId.ReadOnly = true;
-            this.txtId.Size = new System.Drawing.Size(61, 20);
-            this.txtId.TabIndex = 2;
-            this.txtId.TabStop = false;
-            this.txtId.Text = "0";
+            this.txtID.Location = new System.Drawing.Point(96, 4);
+            this.txtID.Name = "txtID";
+            this.txtID.ReadOnly = true;
+            this.txtID.Size = new System.Drawing.Size(61, 20);
+            this.txtID.TabIndex = 2;
+            this.txtID.TabStop = false;
+            this.txtID.Text = "0";
             // 
             // label4
             // 
@@ -166,16 +166,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gboxGroup);
-            this.Controls.Add(this.txtId);
+            this.Controls.Add(this.txtID);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnNew);
             this.Controls.Add(this.btnFind);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtUSER_PSWD);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtUserName);
+            this.Controls.Add(this.txtUSER_NAME);
             this.Controls.Add(this.label1);
             this.Name = "UserUC";
             this.Size = new System.Drawing.Size(328, 367);
@@ -189,15 +189,15 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtUserName;
+        private System.Windows.Forms.TextBox txtUSER_NAME;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.TextBox txtUSER_PSWD;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.Button btnNew;
-        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox gboxGroup;
         private System.Windows.Forms.FlowLayoutPanel flpGroups;

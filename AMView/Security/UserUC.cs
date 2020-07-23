@@ -20,48 +20,47 @@ namespace AMView.Security {
             var groups = new GroupModel().All();
             foreach (var group in groups) {
                 flpGroups.Controls.Add(new RadioButton() {
-                    Text = group.GroupName,
-                    Tag = group.Id,
-                    Name = group.GroupName
+                    Text = group.GROUP_NAME,
+                    Tag = group.ID,
+                    Name = group.GROUP_NAME
                 });
             }
             this.Refresh();
-            this.txtUserName.Focus();
-            this.txtUserName.Select();
+            this.txtUSER_NAME.Focus();
+            this.txtUSER_NAME.Select();
         }
 
         private void btnFind_Click(object sender, EventArgs e) {
-            Form frm = new Form() { Text = "Search Users", Size = new Size(200,500), StartPosition = FormStartPosition.CenterParent };
+            Form frm = new Form() { Text = "Search Users", Size = new Size(500, 300), StartPosition = FormStartPosition.CenterParent };
             frm.Controls.Add(new Common.CommonPickUpValueListUC() { 
                 Dock = DockStyle.Fill,
                 Data = new UserModel().All(),
-                DisplayMember = "UserName",
-                ValueMember = "UserName",
+                DisplayMember = "USER_NAME,GROUP_NAME",
                 OnSelected = delegate (object value) {
                     
                     frm.Close();
                     var model = (UserModel)value;
                     model.Select();
-                    txtUserName.Text = model.UserName;
-                    txtPassword.Text = model.UserPswd;
-                    ((RadioButton)flpGroups.Controls[model.GroupName]).Checked = true;
-                    txtId.Text = model.Id.ToString();
+                    txtUSER_NAME.Text = model.USER_NAME;
+                    txtUSER_PSWD.Text = model.USER_PSWD;
+                    ((RadioButton)flpGroups.Controls[model.GROUP_NAME]).Checked = true;
+                    txtID.Text = model.ID.ToString();
                 }
             });
             frm.ShowDialog();
         }
 
         private void btnNew_Click(object sender, EventArgs e) {
-            txtId.Text = "0";
-            txtPassword.Text = "";
-            txtUserName.Text = "";
-            
+            foreach (Control control in Controls.Cast<Control>().Where(x => x.GetType().ToString().Contains("TextBox"))) control.Text = "";
+            UserUC_Load(sender, e);
         }
 
         private void btnSave_Click(object sender, EventArgs e) {
             UserModel model = new UserModel();
-            model.UserName = txtUserName.Text;
-            model.UserPswd = txtPassword.Text;
+            int.TryParse(txtID.Text, out int id);
+            model.ID = id;
+            model.USER_NAME = txtUSER_NAME.Text;
+            model.USER_PSWD = txtUSER_PSWD.Text;
             
 
             if(model.Validate()==false) {
@@ -70,12 +69,14 @@ namespace AMView.Security {
             }
 
             model.Save();
-            txtId.Text = model.Id.ToString();
+            txtID.Text = model.ID.ToString();
+            txtUSER_NAME.Focus();
+            txtUSER_NAME.Select();
         }
 
         private void btnDelete_Click(object sender, EventArgs e) {
             UserModel user = new UserModel();
-            user.UserName = txtUserName.Text;
+            user.USER_NAME = txtUSER_NAME.Text;
             user.Delete();
         }
     }

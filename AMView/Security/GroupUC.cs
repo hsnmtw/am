@@ -16,26 +16,25 @@ namespace AMView.Security {
         }
 
         private void btnFind_Click(object sender, EventArgs e) {
-            Form frm = new Form() { Text = "Search Groups", Size = new Size(200, 500), StartPosition = FormStartPosition.CenterParent };
+            Form frm = new Form() { Text = "Search Groups", Size = new Size(500, 300), StartPosition = FormStartPosition.CenterParent };
             frm.Controls.Add(new Common.CommonPickUpValueListUC() {
                 Dock = DockStyle.Fill,
                 Data = new GroupModel().All(),
-                DisplayMember = "GroupName",
-                ValueMember = "GroupName",
+                DisplayMember = "GROUP_NAME",
                 OnSelected = delegate (object value) {
                     
                     frm.Close();
                     var model = (GroupModel)value;
                     model.Select();
-                    txtGroupName.Text = model.GroupName;
-                    txtGroupDesc.Text = model.GroupDesc;
-                    txtId.Text = model.Id.ToString();
+                    txtGROUP_NAME.Text = model.GROUP_NAME;
+                    txtGROUP_DESC.Text = model.GROUP_DESC;
+                    txtID.Text = model.ID.ToString();
                     var cmodel = new GroupRoleModel();
-                    cmodel.GroupName = model.GroupName;
-                    var roles = cmodel.SearchByGroupName();
+                    cmodel.GROUP_NAME = model.GROUP_NAME;
+                    var roles = cmodel.SearchByGROUP_NAME();
                     btnSelectNone_Click(null, null);
                     foreach(var role in roles) {
-                        ((CheckBox)flpRoles.Controls[role.RoleName]).Checked = true;
+                        ((CheckBox)flpRoles.Controls[role.ROLE_NAME]).Checked = true;
                     }
                 }
             });
@@ -44,15 +43,17 @@ namespace AMView.Security {
 
         private void btnDelete_Click(object sender, EventArgs e) {
             var model = new GroupModel();
-            model.GroupName = txtGroupName.Text;
-            model.Id = int.Parse(txtId.Text);
+            model.GROUP_NAME = txtGROUP_NAME.Text;
+            model.ID = int.Parse(txtID.Text);
             model.Delete();
         }
 
         private void btnSave_Click(object sender, EventArgs e) {
             var model = new GroupModel();
-            model.GroupName = txtGroupName.Text;
-            model.GroupDesc = txtGroupDesc.Text;
+            int.TryParse(txtID.Text, out int id);
+            model.ID = id;
+            model.GROUP_NAME = txtGROUP_NAME.Text;
+            model.GROUP_DESC = txtGROUP_DESC.Text;
 
             if (model.Validate() == false) {
                 MessageBox.Show(this, "All values are required", "Save Action failed !", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -62,36 +63,39 @@ namespace AMView.Security {
             model.Save();
 
             var grmodel = new GroupRoleModel();
-            grmodel.GroupName = model.GroupName;
-            grmodel.DeleteByGroupName();
+            grmodel.GROUP_NAME = model.GROUP_NAME;
+            grmodel.DeleteByGROUP_NAME();
             
-            
+            foreach(CheckBox role in flpRoles.Controls) {
+                grmodel.ROLE_NAME = role.Text;
+                grmodel.ID = -1;
+                grmodel.Save();
+            }
 
-            
-            txtId.Text = model.Id.ToString();
+            txtID.Text = model.ID.ToString();
+            txtGROUP_NAME.Focus();
+            txtGROUP_NAME.Select();
         }
 
         private void btnNew_Click(object sender, EventArgs e) {
-            
-            txtId.Text = "0";
-            txtGroupDesc.Text = "";
-            txtGroupName.Text = "";
+            foreach (Control control in Controls.Cast<Control>().Where(x => x.GetType().ToString().Contains("TextBox"))) control.Text = "";
             btnSelectNone_Click(null, null);
+            GroupUC_Load(sender, e);
         }
 
         private void GroupUC_Load(object sender, EventArgs e) {
-            txtGroupName.Focus();
-            txtGroupName.Select();
+            txtGROUP_NAME.Focus();
+            txtGROUP_NAME.Select();
             var model = new RoleModel();
 
             flpRoles.HorizontalScroll.Visible = false;
             flpRoles.HorizontalScroll.Maximum = 0;
 
-            foreach (var role in model.All().OrderBy(x => x.RoleName)) {
+            foreach (var role in model.All().OrderBy(x => x.ROLE_NAME)) {
                 flpRoles.Controls.Add(new CheckBox() {
-                    Name = role.RoleName,
-                    Text = role.RoleName,
-                    Tag  = role.Id,
+                    Name = role.ROLE_NAME,
+                    Text = role.ROLE_NAME,
+                    Tag  = role.ID,
                     AutoSize = false
                 });
             }

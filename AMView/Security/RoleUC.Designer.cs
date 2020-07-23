@@ -27,9 +27,9 @@
             this.btnFind = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.txtRoleName = new System.Windows.Forms.TextBox();
+            this.txtROLE_NAME = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.TextBox();
+            this.txtID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -76,12 +76,12 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // txtRoleName
+            // txtROLE_NAME
             // 
-            this.txtRoleName.Location = new System.Drawing.Point(96, 29);
-            this.txtRoleName.Name = "txtRoleName";
-            this.txtRoleName.Size = new System.Drawing.Size(183, 20);
-            this.txtRoleName.TabIndex = 4;
+            this.txtROLE_NAME.Location = new System.Drawing.Point(96, 29);
+            this.txtROLE_NAME.Name = "txtROLE_NAME";
+            this.txtROLE_NAME.Size = new System.Drawing.Size(183, 20);
+            this.txtROLE_NAME.TabIndex = 4;
             // 
             // label1
             // 
@@ -92,15 +92,15 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "&Role Name";
             // 
-            // txtId
+            // txtID
             // 
-            this.txtId.Location = new System.Drawing.Point(96, 3);
-            this.txtId.Name = "txtId";
-            this.txtId.ReadOnly = true;
-            this.txtId.Size = new System.Drawing.Size(61, 20);
-            this.txtId.TabIndex = 2;
-            this.txtId.TabStop = false;
-            this.txtId.Text = "0";
+            this.txtID.Location = new System.Drawing.Point(96, 3);
+            this.txtID.Name = "txtID";
+            this.txtID.ReadOnly = true;
+            this.txtID.Size = new System.Drawing.Size(61, 20);
+            this.txtID.TabIndex = 2;
+            this.txtID.TabStop = false;
+            this.txtID.Text = "0";
             // 
             // label2
             // 
@@ -115,13 +115,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.txtId);
+            this.Controls.Add(this.txtID);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnNew);
             this.Controls.Add(this.btnFind);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.txtRoleName);
+            this.Controls.Add(this.txtROLE_NAME);
             this.Controls.Add(this.label1);
             this.Name = "RoleUC";
             this.Size = new System.Drawing.Size(330, 162);
@@ -136,9 +136,9 @@
         private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.TextBox txtRoleName;
+        private System.Windows.Forms.TextBox txtROLE_NAME;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label label2;
     }
 }

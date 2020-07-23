@@ -23,14 +23,14 @@ namespace AMView
         private void btnLogin_Click(object sender, EventArgs e)
         {
             
-            if (User.Authenticate(txtUserName.Text, txtPassword.Text))
+            if (User.Authenticate(txtUSER_NAME.Text, txtPassword.Text))
             {
                 this.DialogResult = DialogResult.OK;
                 Close();
             }
             else
             {
-                MessageBox.Show(this,"Username / password combination not correct", "Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show(this,"USER_NAME / password combination not correct", "Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
 
